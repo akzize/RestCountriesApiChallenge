@@ -56,6 +56,7 @@ Then crop/optimize/edit your image however you like, add it to your project, and
   - [React Router](https://reactrouter.com/) - For routing
 - [Styled Components](https://styled-components.com/) - For styles
 - Countires API - [REST Countries API](https://restcountries.com)
+- axios for fetching data
 
 ### What I learned
 

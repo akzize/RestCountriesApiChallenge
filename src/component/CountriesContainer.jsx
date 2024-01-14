@@ -7,6 +7,7 @@ import axios from "axios";
 
 function CountriesContainer() {
 	const [countries, setCountries] = useState([]);
+	const [filteredCountries, setFilteredCountries] = useState([]);
 	const [regions, setRegions] = useState([]);
 	const [loading, setLoading] = useState(false);
 
@@ -19,32 +20,56 @@ function CountriesContainer() {
 				axios.get("https://restcountries.com/v3.1/all?fields=region"),
 			]);
 			const data = responceAll.data;
-			const regions = responceRegions.data.map((region) => region.region);
+			let regions = responceRegions.data.map((region) => region.region);
 			setCountries(data);
-			setRegions(new Set(regions));
+
+			// here i turn it to Set in order to get a unique values
+			// in then return to array in order to map over it
+			regions = Array.from(new Set(regions));
+			setRegions(regions);
 		} catch (err) {
 			console.error("fetch Countries error: ", err);
 		} finally {
 			setLoading(false);
 		}
 	};
+
+	// the search functionality
+	const handleSearch = (txt) => {
+		if (txt) {
+			const tmp = countries.filter((val) =>
+				val.name.common
+					.toLowerCase()
+					.toLowerCase()
+					.toLowerCase()
+					.includes(txt.toLowerCase())
+			);
+			setFilteredCountries(tmp)
+		}else{
+			setFilteredCountries(countries)
+		}
+	};
+
 	useEffect(() => {
 		fetchData();
 	}, []);
 	return (
 		<div className="">
 			<div className="filters px-12 py-5 flex justify-between items-center">
-				<SearchInput />
+				<SearchInput handleSearch={handleSearch} />
 				<Select regions={regions} />
 			</div>
 			<div className="countries ">
 				{loading ? (
-					<TailSpin
-						color="red"
-						radius={"8px"}
-						strokeWidth={5}
-						className=""
-					/>
+					<div className="flex flex-col items-center justify-center">
+						<TailSpin
+							color="red"
+							radius={"8px"}
+							strokeWidth={5}
+							className=""
+						/>
+						<p>...loading</p>
+					</div>
 				) : (
 					<div className="flex gap-10 flex-wrap justify-center items-center">
 						{countries.map((country, index) => (

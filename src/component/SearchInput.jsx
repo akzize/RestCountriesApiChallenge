@@ -1,6 +1,6 @@
+import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
-
-function SearchInput() {
+function SearchInput({handleSearch}) {
 	return (
 		<div className="search relative">
 			<div className="absolute inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
@@ -11,6 +11,8 @@ function SearchInput() {
 				id="input-group-1"
 				className="bg-gray-50 border border-gray-300 focus:outline-none text-gray-900 text-sm rounded-lg block ps-10 p-2.5 "
 				placeholder="Search a country"
+				// value={searchedValue}
+				onChange={(e) => handleSearch(e.target.value)}
 			></input>
 		</div>
 	);
