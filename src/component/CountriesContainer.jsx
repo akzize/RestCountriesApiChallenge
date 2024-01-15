@@ -22,6 +22,7 @@ function CountriesContainer() {
 			const data = responceAll.data;
 			let regions = responceRegions.data.map((region) => region.region);
 			setCountries(data);
+			setFilteredCountries(data);
 
 			// here i turn it to Set in order to get a unique values
 			// in then return to array in order to map over it
@@ -72,7 +73,7 @@ function CountriesContainer() {
 					</div>
 				) : (
 					<div className="flex gap-10 flex-wrap justify-center items-center">
-						{countries.map((country, index) => (
+						{filteredCountries.map((country, index) => (
 							<CountryCard key={index} country={country} />
 						))}
 					</div>
