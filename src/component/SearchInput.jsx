@@ -9,7 +9,7 @@ function SearchInput({handleSearch}) {
 			<input
 				type="text"
 				id="input-group-1"
-				className="bg-gray-50 border border-gray-300 focus:outline-none text-gray-900 text-sm rounded-lg block ps-10 p-2.5 "
+				className="bg-gray-50 border border-gray-300 focus:outline-none text-gray-900 text-sm rounded-lg block ps-10 p-2.5 dark:bg-gray-700 dark:text-slate-300"
 				placeholder="Search a country"
 				// value={searchedValue}
 				onChange={(e) => handleSearch(e.target.value)}

@@ -22,23 +22,23 @@ function CountryInfo() {
 	}, [countryName]);
 	console.log("country ", country);
 	return (
-		<section className="">
+		<section className="h-2/3">
 			<NavLink
 				to={"/"}
-				className="flex items-center content-center justify-center gap-2 bg-blue-600 px-3 py-2 text-white hover:bg-blue-800 w-fit my-10 ms-44"
+				className="flex items-center content-center justify-center gap-2 bg-blue-800 px-3 py-2 text-white hover:bg-blue-950 w-fit my-10 ms-44 dark:bg-blue-950 dark:hover:bg-blue-800"
 			>
 				<FaArrowLeft /> Back
 			</NavLink>
 			{country && (
 				<div className="flex justify-center content-stretch gap-20 flex-wrap">
-					<div className="img h-64 border">
+					<div className="img h-64 ">
 						<img
 							src={country.flags.png}
 							className="h-full"
 							alt=""
 						/>
 					</div>
-					<div className="txt border ">
+					<div className="txt">
 						<h1 className="text-3xl py-3 font-bold">
 							{country.name.common}
 						</h1>
@@ -90,11 +90,7 @@ function CountryInfo() {
 									</span>
 									{Object.values(country.languages).map(
 										(lang, index) => (
-											<span
-												key={index}
-											>
-												{lang} {' '}
-											</span>
+											<span key={index}>{lang} </span>
 										)
 									)}
 								</p>

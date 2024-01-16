@@ -55,7 +55,7 @@ function CountriesContainer() {
 		fetchData();
 	}, []);
 	return (
-		<div className="">
+		<div className="min-h-full">
 			<div className="filters px-12 py-5 flex justify-between items-center">
 				<SearchInput handleSearch={handleSearch} />
 				<Select
@@ -70,7 +70,7 @@ function CountriesContainer() {
 						<TailSpin
 							color="red"
 							radius={"8px"}
-							strokeWidth={5}
+							strokeWidth={3}
 							className=""
 						/>
 						<p>...loading</p>

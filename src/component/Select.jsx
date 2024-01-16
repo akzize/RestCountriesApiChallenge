@@ -16,7 +16,7 @@ function Select({ regions, setFilteredCountries, countries }) {
 			<select
 				name=""
 				id=""
-				className="py-3 w-40 px-2  rounded-lg"
+				className="py-3 w-40 px-2 rounded-lg dark:bg-gray-700"
 				onChange={handleChange}
 			>
 				<option value="0" selected disabled>
