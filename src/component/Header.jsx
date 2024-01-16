@@ -5,7 +5,7 @@ import { MdOutlineWbSunny } from "react-icons/md";
 function Header() {
 	const [isDark, setIsDark] = useState(false);
 	return (
-		<div className="flex items-center justify-between bg-white px-10 py-4 mb-2 shadow-md fixed w-full ">
+		<div className="flex items-center justify-between bg-white px-10 py-4 mb-2 shadow-md fixed w-full z-50">
 			<h1 className="text-2xl font-semibold">Where in the world ?</h1>
 			<div className="theme" onClick={() => setIsDark(!isDark)}>
 				{isDark ? (

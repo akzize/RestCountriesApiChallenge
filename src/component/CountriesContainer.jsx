@@ -58,7 +58,11 @@ function CountriesContainer() {
 		<div className="">
 			<div className="filters px-12 py-5 flex justify-between items-center">
 				<SearchInput handleSearch={handleSearch} />
-				<Select regions={regions} />
+				<Select
+					regions={regions}
+					setFilteredCountries={setFilteredCountries}
+					countries={countries}
+				/>
 			</div>
 			<div className="countries ">
 				{loading ? (
